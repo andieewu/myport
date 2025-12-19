@@ -5,18 +5,71 @@ body {
   user-select: none;
 }
 
-/* .t1 {
-  color: #52524e;
+html {
+  scroll-behavior: smooth;
 }
 
-.t2 {
-  color: #52575d;
-} */
+/* SCROLL DOWN */
+.scroll {
+  --scroll-border: #6b7280;
+  --scroll-border-hover: #000;
 
-.custom-border {
-  border-color: #797979;
-  /* background-color: #f2efe5; */
-  border-width: 1px;
-  border-style: dashed;
-  /* box-shadow: 4px 4px 2px 1px #52524e; */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: relative;
+  animation: down 1.5s infinite;
+  -webkit-animation: down 1.5s infinite;
+}
+
+.scroll::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 9px;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid var(--scroll-border);
+  border-bottom: 2px solid var(--scroll-border);
+  transform: rotate(-45deg);
+  transition: all 0.3s ease;
+}
+
+.scroll,
+.scroll::before {
+  transition: all 0.3s ease;
+}
+
+.scroll:hover::before {
+  border-left-color: var(--scroll-border-hover);
+  border-bottom-color: var(--scroll-border-hover);
+}
+
+.dark .scroll {
+  --scroll-border: #6b7280;
+  --scroll-border-hover: #fff;
+}
+
+@keyframes down {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  40% {
+    transform: translate(0);
+  }
+}
+
+@-webkit-keyframes down {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  40% {
+    transform: translate(0);
+  }
 }

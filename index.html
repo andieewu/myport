@@ -20,29 +20,58 @@
     />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
   </head>
-  <body>
-    <div class="mx-auto max-w-xl px-6">
+  <body class="bg-white dark:bg-neutral-900 text-black dark:text-white">
+    <nav class="fixed top-0 left-0 w-full z-50">
+      <div
+        class="max-w-xl mx-auto px-6 h-14 mt-2 flex items-center justify-end"
+      >
+        <div
+          class="flex items-center gap-1 rounded-full bg-gray-500/20 dark:bg-gray-700/30 backdrop-blur p-1"
+        >
+          <button
+            id="themeToggle"
+            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition"
+          >
+            <i class="ri-moon-line text-xl"></i>
+          </button>
+
+          <button
+            id="menuToggle"
+            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition"
+          >
+            <i class="ri-menu-line text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mx-auto max-w-xl px-6 pt-14">
       <!-- HERO -->
       <section class="min-h-screen flex items-center justify-center">
         <div class="text-center w-full">
           <div
-            class="w-[120px] h-[120px] mx-auto mb-2 sm:mb-4 rounded-full bg-[url('img/profile.jpg')] bg-cover bg-center transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0"
+            class="w-[120px] h-[120px] mx-auto mb-2 sm:mb-4 rounded-full bg-[url('img/profile.jpg')] bg-cover bg-center"
           ></div>
           <h1 class="text-3xl font-bold t1 sm:text-5xl md:text-6xl">
             Andika Wisnumurti
           </h1>
 
           <div
-            class="mt-2 sm:mt-4 flex justify-center gap-3 sm:gap-6 text-gray-400 font-semibold"
+            class="mt-2 sm:mt-4 flex justify-center gap-3 sm:gap-6 text-gray-500 font-semibold"
           >
             <p
-              class="px-2 text-[14px] sm:text-base border border-gray-400 rounded-lg hover:border-black hover:text-black"
+              class="px-2 text-[14px] sm:text-base border border-gray-500 rounded-lg hover:border-black hover:text-black dark:hover:border-white dark:hover:text-white transition-all duration-300"
             >
               Junior Web Developer
             </p>
             <p
-              class="px-2 text-[14px] sm:text-base border border-gray-400 rounded-lg hover:border-black hover:text-black"
+              class="px-2 text-[14px] sm:text-base border border-gray-500 rounded-lg hover:border-black hover:text-black dark:hover:border-white dark:hover:text-white transition-all duration-300"
             >
               Fresh Graduate
             </p>
@@ -57,20 +86,28 @@
           <div class="mt-4">
             <a
               href="mailto:wisnumurtiandika@gmail.com"
-              class="p-2 font-semibold underline text-gray-400 hover:text-black"
+              class="p-2 font-semibold transition-all duration-300 underline text-gray-500 hover:text-black dark:hover:text-white"
             >
               Get in touch!
             </a>
           </div>
 
-          <div class="mt-4 flex justify-center gap-6">
-            <h1 class="px-4 text-base text-center mb-6">...</h1>
-          </div>
+          <!-- <div class="mt-4 flex flex-col items-center">
+            <h1 class="text-base text-center mb-2">Scroll Down!</h1>
+            <div class="scroll"></div>
+          </div> -->
+
+          <a
+            href="#"
+            class="flex flex-col items-center gap-6 mt-4 cursor-pointer"
+          >
+            <div class="scroll"></div>
+          </a>
         </div>
       </section>
 
       <!-- PLAYLIST -->
-      <section class="">
+      <section class="" id="">
         <!-- <div class="mt-4 flex justify-center gap-6">
           <h1 class="px-4 text-2xl text-center mb-6 font-semibold">
             My Playlist
@@ -84,13 +121,14 @@
         </div>
 
         <iframe
+          id="spotify"
           data-testid="embed-iframe"
           style="border-radius: 12px"
           src="https://open.spotify.com/embed/playlist/2206mnD8u5SZ8b3sPxEHOg?utm_source=generator&theme=0"
           width="100%"
           height="152"
           frameborder="0"
-          allowfullscreen=""
+          allowfullscreen
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
@@ -107,13 +145,13 @@
         </div> -->
 
         <div
-          class="flex justify-center gap-6 mb-6 items-center text-[22px] sm:text-2xl px-6 text-gray-400"
+          class="flex justify-center gap-6 mb-6 items-center text-[22px] sm:text-2xl px-6 text-gray-500"
         >
           <a
             href="https://github.com/andieewu"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="hover:text-black dark:hover:text-white transition-all duration-300"
           >
             <i class="ri-github-fill"></i>
           </a>
@@ -122,7 +160,7 @@
             href="https://www.youtube.com/@andieewu"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="hover:text-black dark:hover:text-white transition-all duration-300"
           >
             <i class="ri-youtube-fill"></i>
           </a>
@@ -131,7 +169,7 @@
             href="https://www.instagram.com/andieewu"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="hover:text-black dark:hover:text-white transition-all duration-300"
           >
             <i class="ri-instagram-fill"></i>
           </a>
@@ -140,12 +178,15 @@
             href="https://discordapp.com/users/1229931778106593431"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-black"
+            class="hover:text-black dark:hover:text-white transition-all duration-300"
           >
             <i class="ri-discord-fill"></i>
           </a>
 
-          <a href="mailto:wisnumurtiandika@gmail.com" class="hover:text-black">
+          <a
+            href="mailto:wisnumurtiandika@gmail.com"
+            class="hover:text-black dark:hover:text-white transition-all duration-300"
+          >
             <i class="ri-mail-fill"></i>
           </a>
         </div>
@@ -154,4 +195,5 @@
       </footer>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
