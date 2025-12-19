@@ -27,59 +27,53 @@
     </script>
   </head>
   <body class="bg-white dark:bg-neutral-900 text-black dark:text-white">
+    <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 w-full z-50">
       <div
         class="max-w-xl mx-auto px-6 h-14 mt-2 flex items-center justify-end"
       >
         <div
           id="navWrapper"
-          class="relative flex items-center gap-1 rounded-full bg-gray-500/20 dark:bg-gray-700/30 backdrop-blur p-1"
+          class="relative flex items-center gap-1 rounded-full bg-gray-500/20 dark:bg-gray-700/30 backdrop-blur-md p-1"
         >
           <button
             id="themeToggle"
-            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition"
+            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition-all duration-300"
           >
             <i class="ri-moon-line text-xl"></i>
           </button>
 
           <button
             id="menuToggle"
-            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition"
+            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition-all duration-300"
           >
             <i class="ri-menu-line text-xl"></i>
           </button>
 
           <div
-            id="menuPanel"
-            class="absolute top-full right-0 mt-2 min-w-[160px] p-3 rounded-2xl bg-white/80 dark:bg-neutral-800/80 backdrop-blur shadow-lg transition-all duration-300 ease-out translate-x-full opacity-0 pointer-events-none"
+            id="menuTray"
+            class="absolute top-full right-0 mt-2 w-48 rounded-xl bg-neutral-900 dark:bg-white backdrop-blur shadow-lg scale-95 opacity-0 pointer-events-none transition-all duration-300"
           >
-            <ul class="space-y-2 text-base text-gray-700 dark:text-gray-200">
+            <ul class="p-2 space-y-1 text-sm text-white dark:text-black">
               <li>
                 <a
-                  href="#hero"
-                  class="block px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-neutral-700"
-                  >Coming soon!</a
+                  href="#home"
+                  class="block px-3 py-2 rounded-lg hover:bg-neutral-500/50 dark:hover:bg-gray-500/50"
+                  >Home</a
+                >
+              </li>
+                <a
+                  href="#others"
+                  class="block px-3 py-2 rounded-lg hover:bg-neutral-500/50 dark:hover:bg-gray-500/50"
+                  >Others</a
                 >
               </li>
               <!-- <li>
+              <li>
                 <a
                   href="#about"
-                  class="block px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-neutral-700"
+                  class="block px-3 py-2 rounded-lg hover:bg-neutral-500/50 dark:hover:bg-gray-500/50"
                   >About</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#works"
-                  class="block px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-neutral-700"
-                  >Works</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  class="block px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-neutral-700"
-                  >Contact</a
                 >
               </li> -->
             </ul>
@@ -87,9 +81,16 @@
         </div>
       </div>
     </nav>
+
+    <!-- <canvas
+      id="particleCanvas"
+      class="fixed top-0 left-0 w-full h-full -z-10"
+    ></canvas> -->
+
+    <!-- MAIN CONTAINER -->
     <div class="mx-auto max-w-xl px-6">
       <!-- HERO -->
-      <section class="min-h-screen flex items-center justify-center">
+      <section id="home" class="min-h-screen flex items-center justify-center">
         <div class="text-center w-full">
           <div
             class="w-[120px] h-[120px] mx-auto mb-2 sm:mb-4 rounded-full bg-[url('img/profile.jpg')] bg-cover bg-center"
@@ -115,8 +116,10 @@
 
           <p class="mt-2 sm:mt-4 t2">
             An 18-year-old aspiring developer with junior-level experience in
-            frontend and backend development, currently exploring AI and machine
-            learning.
+            <span class="font-bold">frontend</span> and
+            <span class="font-bold">backend</span> development, currently
+            exploring <span class="">AI</span> and
+            <span class="">machine learning</span>.
           </p>
 
           <div class="mt-4">
@@ -141,19 +144,21 @@
           </a>
         </div>
       </section>
+      <!-- END HERO -->
+
       <!-- PLAYLIST -->
-      <section class="" id="">
-        <!-- <div class="mt-4 flex justify-center gap-6">
+      <section id="others">
+        <div class="mt-4 flex justify-center gap-6">
           <h1 class="px-4 text-2xl text-center mb-6 font-semibold">
             My Playlist
           </h1>
-        </div> -->
+        </div>
 
-        <div
-          class="py-3 flex items-center text-2xl font-semibold mb-2 before:flex-1 before:border-t before:border-gray-400 before:me-6 after:flex-1 after:border-t after:border-gray-400 after:ms-6"
+        <!-- <div
+          class="py-3 flex items-center text-2xl font-semibold mb-2 before:flex-1 before:border-t before:border-gray-400 before:me-6 before:border-dashed after:flex-1 after:border-t after:border-gray-400 after:ms-6 after:border-dashed"
         >
           My Playlist
-        </div>
+        </div> -->
 
         <iframe
           id="spotify"
@@ -168,6 +173,7 @@
           loading="lazy"
         ></iframe>
       </section>
+      <!-- END PLAYLIST -->
 
       <!-- FOOTER -->
       <footer class="text-center py-6 text-sm t2">
@@ -228,6 +234,7 @@
 
         © 2025 Andika Wisnumurti. All rights reserved.
       </footer>
+      <!-- END FOOTER -->
     </div>
   </body>
   <script src="script.js"></script>

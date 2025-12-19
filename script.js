@@ -1,87 +1,60 @@
+/* ----------  THEME (tetap seperti kamu punya) ---------- */
 const toggle = document.getElementById("themeToggle");
-const icon = toggle.querySelector("i");
+const themeIcon = toggle.querySelector("i");
 const html = document.documentElement;
 
 if (localStorage.theme === "dark") {
   html.classList.add("dark");
-  icon.className = "ri-sun-line text-xl";
+  themeIcon.className = "ri-sun-line text-xl";
 }
-
 toggle.addEventListener("click", () => {
   html.classList.toggle("dark");
-
   if (html.classList.contains("dark")) {
     localStorage.theme = "dark";
-    icon.className = "ri-sun-line text-xl";
+    themeIcon.className = "ri-sun-line text-xl";
   } else {
     localStorage.theme = "light";
-    icon.className = "ri-moon-line text-xl";
+    themeIcon.className = "ri-moon-line text-xl";
   }
-});
-
-const menuToggle = document.getElementById("menuToggle");
-const menuPanel = document.getElementById("menuPanel");
-
-menuToggle.addEventListener("click", () => {
-  const isOpen = menuPanel.classList.contains("translate-x-full");
-  if (isOpen) {
-    menuPanel.classList.remove(
-      "translate-x-full",
-      "opacity-0",
-      "pointer-events-none"
-    );
-  } else {
-    menuPanel.classList.add(
-      "translate-x-full",
-      "opacity-0",
-      "pointer-events-none"
-    );
-  }
-});
-
-document.addEventListener("click", (e) => {
-  const wrapper = document.getElementById("navWrapper");
-  if (!wrapper.contains(e.target)) {
-    menuPanel.classList.add(
-      "translate-x-full",
-      "opacity-0",
-      "pointer-events-none"
-    );
-  }
-});
-
-// contoh light-weight stagger, tambahkan di script.js
-const io = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((card, i) => {
-      if (card.isIntersecting) {
-        setTimeout(
-          () => card.target.classList.remove("opacity-0", "translate-y-4"),
-          100 * i
-        );
-        io.unobserve(card.target);
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-document.querySelectorAll("#tools > div > div").forEach((el) => {
-  el.classList.add("opacity-0", "translate-y-4", "transition", "duration-300");
-  io.observe(el);
 });
 
 const spotify = document.getElementById("spotify");
-
 function setSpotifyTheme() {
-  const isDark = document.documentElement.classList.contains("dark");
+  const isDark = html.classList.contains("dark");
   spotify.src = `https://open.spotify.com/embed/playlist/2206mnD8u5SZ8b3sPxEHOg?utm_source=generator&theme=${
     isDark ? "1" : "0"
   }`;
 }
-
 setSpotifyTheme();
+toggle.addEventListener("click", setSpotifyTheme);
 
-document
-  .getElementById("themeToggle")
-  .addEventListener("click", setSpotifyTheme);
+const menuToggle = document.getElementById("menuToggle");
+const menuTray = document.getElementById("menuTray");
+const menuIcon = menuToggle.querySelector("i");
+
+menuToggle.addEventListener("click", () => {
+  const open = menuTray.classList.toggle("scale-100");
+  menuTray.classList.toggle("opacity-100", open);
+  menuTray.classList.toggle("pointer-events-none", !open);
+
+  menuToggle.classList.toggle("bg-gray-300", open);
+  menuToggle.classList.toggle("dark:bg-gray-600", open);
+
+  menuIcon.classList.toggle("ri-menu-line", !open);
+  menuIcon.classList.toggle("ri-close-large-line", open);
+});
+
+function closeTray() {
+  menuTray.classList.remove("scale-100", "opacity-100");
+  menuTray.classList.add("pointer-events-none");
+  menuToggle.classList.remove("bg-gray-300", "dark:bg-gray-600");
+  menuIcon.classList.remove("ri-close-large-line");
+  menuIcon.classList.add("ri-menu-line");
+}
+
+document.addEventListener("click", (e) => {
+  if (menuToggle.contains(e.target) || menuTray.contains(e.target)) return;
+  closeTray();
+});
+
+menuTray.addEventListener("click", (e) => e.stopPropagation());
