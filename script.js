@@ -25,14 +25,12 @@ const menuPanel = document.getElementById("menuPanel");
 menuToggle.addEventListener("click", () => {
   const isOpen = menuPanel.classList.contains("translate-x-full");
   if (isOpen) {
-    // buka
     menuPanel.classList.remove(
       "translate-x-full",
       "opacity-0",
       "pointer-events-none"
     );
   } else {
-    // tutup
     menuPanel.classList.add(
       "translate-x-full",
       "opacity-0",
@@ -50,6 +48,27 @@ document.addEventListener("click", (e) => {
       "pointer-events-none"
     );
   }
+});
+
+// contoh light-weight stagger, tambahkan di script.js
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((card, i) => {
+      if (card.isIntersecting) {
+        setTimeout(
+          () => card.target.classList.remove("opacity-0", "translate-y-4"),
+          100 * i
+        );
+        io.unobserve(card.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+document.querySelectorAll("#tools > div > div").forEach((el) => {
+  el.classList.add("opacity-0", "translate-y-4", "transition", "duration-300");
+  io.observe(el);
 });
 
 const spotify = document.getElementById("spotify");
