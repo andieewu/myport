@@ -27,34 +27,3 @@ function setSpotifyTheme() {
 }
 setSpotifyTheme();
 toggle.addEventListener("click", setSpotifyTheme);
-
-const menuToggle = document.getElementById("menuToggle");
-const menuTray = document.getElementById("menuTray");
-const menuIcon = menuToggle.querySelector("i");
-
-menuToggle.addEventListener("click", () => {
-  const open = menuTray.classList.toggle("scale-100");
-  menuTray.classList.toggle("opacity-100", open);
-  menuTray.classList.toggle("pointer-events-none", !open);
-
-  menuToggle.classList.toggle("bg-gray-300", open);
-  menuToggle.classList.toggle("dark:bg-gray-600", open);
-
-  menuIcon.classList.toggle("ri-menu-line", !open);
-  menuIcon.classList.toggle("ri-close-large-line", open);
-});
-
-function closeTray() {
-  menuTray.classList.remove("scale-100", "opacity-100");
-  menuTray.classList.add("pointer-events-none");
-  menuToggle.classList.remove("bg-gray-300", "dark:bg-gray-600");
-  menuIcon.classList.remove("ri-close-large-line");
-  menuIcon.classList.add("ri-menu-line");
-}
-
-document.addEventListener("click", (e) => {
-  if (menuToggle.contains(e.target) || menuTray.contains(e.target)) return;
-  closeTray();
-});
-
-menuTray.addEventListener("click", (e) => e.stopPropagation());

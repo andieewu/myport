@@ -12,6 +12,13 @@
       rel="stylesheet"
     />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,73 +26,42 @@
       rel="stylesheet"
     />
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
       };
+      AOS.init();
     </script>
   </head>
   <body class="bg-white dark:bg-neutral-900 text-black dark:text-white">
     <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 w-full z-50">
       <div
-        class="max-w-xl mx-auto px-6 h-14 mt-2 flex items-center justify-end"
+        class="w-full max-w-xl mx-auto md:mx-0 md:ml-auto px-6 h-14 mt-2 flex items-center justify-end gap-2 animate__animated animate__slideInDown"
       >
         <div
+          class="flex items-center gap-2 rounded-full bg-gray-500/20 dark:bg-gray-700/30 backdrop-blur-md dark:text-white backdrop-blur-md px-3 py-2 animate-slideInDown"
+        >
+          <i class="ri-information-2-line"></i>
+          <span class="text-sm font-medium">Not finished yet</span>
+        </div>
+
+        <div
           id="navWrapper"
-          class="relative flex items-center gap-1 rounded-full bg-gray-500/20 dark:bg-gray-700/30 backdrop-blur-md p-1"
+          class="relative flex items-center gap-1 rounded-full bg-gray-500/20 dark:bg-gray-700/30 backdrop-blur-md p-1 animate-slideInDown"
         >
           <button
             id="themeToggle"
+            aria-label="Toggle theme"
             class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition-all duration-300"
           >
             <i class="ri-moon-line text-xl"></i>
           </button>
-
-          <button
-            id="menuToggle"
-            class="w-8 h-8 rounded-full hover:text-black dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600/50 transition-all duration-300"
-          >
-            <i class="ri-menu-line text-xl"></i>
-          </button>
-
-          <div
-            id="menuTray"
-            class="absolute top-full right-0 mt-2 w-48 rounded-xl bg-neutral-900 dark:bg-white backdrop-blur shadow-lg scale-95 opacity-0 pointer-events-none transition-all duration-300"
-          >
-            <ul class="p-2 space-y-1 text-sm text-white dark:text-black">
-              <li>
-                <a
-                  href="#home"
-                  class="block px-3 py-2 rounded-lg hover:bg-neutral-500/50 dark:hover:bg-gray-500/50"
-                  >Home</a
-                >
-              </li>
-                <a
-                  href="#others"
-                  class="block px-3 py-2 rounded-lg hover:bg-neutral-500/50 dark:hover:bg-gray-500/50"
-                  >Others</a
-                >
-              </li>
-              <!-- <li>
-              <li>
-                <a
-                  href="#about"
-                  class="block px-3 py-2 rounded-lg hover:bg-neutral-500/50 dark:hover:bg-gray-500/50"
-                  >About</a
-                >
-              </li> -->
-            </ul>
-          </div>
         </div>
       </div>
     </nav>
-
-    <!-- <canvas
-      id="particleCanvas"
-      class="fixed top-0 left-0 w-full h-full -z-10"
-    ></canvas> -->
 
     <!-- MAIN CONTAINER -->
     <div class="mx-auto max-w-xl px-6">
@@ -93,14 +69,16 @@
       <section id="home" class="min-h-screen flex items-center justify-center">
         <div class="text-center w-full">
           <div
-            class="w-[120px] h-[120px] mx-auto mb-2 sm:mb-4 rounded-full bg-[url('img/profile.jpg')] bg-cover bg-center"
+            class="w-[120px] h-[120px] mx-auto mb-2 sm:mb-4 rounded-full bg-[url('img/profile.jpg')] bg-cover bg-center animate__animated animate__zoomIn"
           ></div>
-          <h1 class="text-3xl font-bold t1 sm:text-5xl md:text-6xl">
+          <h1
+            class="text-3xl font-bold t1 sm:text-5xl md:text-6xl focus-in-expand"
+          >
             Andika Wisnumurti
           </h1>
 
           <div
-            class="mt-2 sm:mt-4 flex justify-center gap-3 sm:gap-6 text-gray-400 font-semibold"
+            class="mt-2 sm:mt-4 flex justify-center gap-3 sm:gap-6 text-gray-400 font-semibold animate__animated animate__fadeInDown animate__delay-1s"
           >
             <p
               class="px-2 text-[14px] sm:text-base border border-gray-400 rounded-lg hover:border-black hover:text-black dark:hover:border-white dark:hover:text-white transition-all duration-300"
@@ -114,7 +92,9 @@
             </p>
           </div>
 
-          <p class="mt-2 sm:mt-4 t2">
+          <p
+            class="mt-2 sm:mt-4 t2 animate__animated animate__fadeIn animate__delay-2s"
+          >
             An 18-year-old aspiring developer with junior-level experience in
             <span class="font-bold">frontend</span> and
             <span class="font-bold">backend</span> development, currently
@@ -122,7 +102,7 @@
             <span class="">machine learning</span>.
           </p>
 
-          <div class="mt-4">
+          <div class="mt-4 roll-in-blurred-top">
             <a
               href="mailto:wisnumurtiandika@gmail.com"
               class="p-2 font-semibold transition-all duration-300 underline text-gray-400 hover:text-black dark:hover:text-white"
@@ -138,7 +118,7 @@
 
           <a
             href="#"
-            class="flex flex-col items-center gap-6 mt-4 cursor-pointer"
+            class="flex flex-col items-center gap-6 mt-4 cursor-pointer roll-in-blurred-top"
           >
             <div class="scroll"></div>
           </a>
@@ -147,20 +127,20 @@
       <!-- END HERO -->
 
       <!-- PLAYLIST -->
-      <section id="others">
+      <!-- <section id="others">
         <div class="mt-4 flex justify-center gap-6">
           <h1 class="px-4 text-2xl text-center mb-6 font-semibold">
             My Playlist
           </h1>
-        </div>
+        </div> -->
 
-        <!-- <div
+      <!-- <div
           class="py-3 flex items-center text-2xl font-semibold mb-2 before:flex-1 before:border-t before:border-gray-400 before:me-6 before:border-dashed after:flex-1 after:border-t after:border-gray-400 after:ms-6 after:border-dashed"
         >
           My Playlist
         </div> -->
 
-        <iframe
+      <!-- <iframe
           id="spotify"
           data-testid="embed-iframe"
           style="border-radius: 12px"
@@ -172,7 +152,7 @@
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
         ></iframe>
-      </section>
+      </section> -->
       <!-- END PLAYLIST -->
 
       <!-- FOOTER -->
