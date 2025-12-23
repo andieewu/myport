@@ -68,7 +68,7 @@ export default function Home() {
 
       {/* BADGE */}
       <div className="mt-4 flex justify-center gap-6 text-focus-in">
-        <p className="px-4 text-center mb-6">
+        <p className="px-3 py-2 text-[14px] sm:text-base rounded-sm backdrop-blur-lg bg-gray-500/20 border-2 border-transparent hover:border-black dark:hover:border-white transition-all duration-500">
           This website is not completely finished yet.
         </p>
       </div>
@@ -80,7 +80,7 @@ export default function Home() {
             href="https://github.com/andieewu"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white hover:scale-105 glow-text transition-all duration-500"
+            className="hover:text-black dark:hover:text-white glow-text transition-all duration-500"
           >
             <i className="ri-github-fill"></i>
           </a>
@@ -89,7 +89,7 @@ export default function Home() {
             href="https://www.youtube.com/@andieewu"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white hover:scale-105 glow-text transition-all duration-500"
+            className="hover:text-black dark:hover:text-white  glow-text transition-all duration-500"
           >
             <i className="ri-youtube-fill"></i>
           </a>
@@ -98,7 +98,7 @@ export default function Home() {
             href="https://www.instagram.com/andieewu"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white hover:scale-105 glow-text transition-all duration-500"
+            className="hover:text-black dark:hover:text-white glow-text transition-all duration-500"
           >
             <i className="ri-instagram-fill"></i>
           </a>
@@ -107,14 +107,14 @@ export default function Home() {
             href="https://discordapp.com/users/1229931778106593431"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-black dark:hover:text-white hover:scale-105 glow-text transition-all duration-500"
+            className="hover:text-black dark:hover:text-white glow-text transition-all duration-500"
           >
             <i className="ri-discord-fill"></i>
           </a>
 
           <a
             href="mailto:wisnumurtiandika@gmail.com"
-            className="hover:text-black dark:hover:text-white hover:scale-105 glow-text transition-all duration-500"
+            className="hover:text-black dark:hover:text-white glow-text transition-all duration-500"
           >
             <i className="ri-mail-fill"></i>
           </a>
